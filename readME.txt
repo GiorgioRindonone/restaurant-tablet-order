@@ -39,12 +39,12 @@ Per visualizzare il progetto
 
 1-Scaricare MAMP ed avviare il server, scegliere nelle preferences la document root di dove si andrà a mettere la cartella del progetto
 2-Aprire in MAMP la webstartpage, dove ci sarà la homepage del database di riferimento
-3-nella root principale del progetto c'è un file env.duplicate o simile, copiare e incollare il file rinominandolo .env
+3-nella root principale del progetto c'è un file env.example, copiare e incollare il file rinominandolo .env
 4-incollare sostituendo tutto con:
 
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:SM7b7fm+2lKsEWfTPeOKXPafYcToHdfFvAzOM4VKi1A=
+APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -102,4 +102,23 @@ va impostata in base ai dati che vengono elencati nella homepage si MAMP sotto l
 7-cliccare new e impostare come nome restaurant_tablet_order
 8-una volta creata la voce del DB cliccarla e poi fare import dal menu in alto, selezionare il file DB restaurant_tablet_order.sql per importare il db.
 9-una volta importato il db tornare in VScode con il terminale aperto e inviare 
-aprire la cartella con VScode o simili, aprire il terminale e 
+aprire la cartella con VScode o simili, aprire il terminale e eseguire:
+
+
+php artisan key:generate
+
+npm install
+
+npm run dev 
+
+php artisan config:clear
+
+npm audit fix
+
+composer dump-autoload 
+
+npx mix 
+
+php artisan serve 
+
+10-facendo un controllo che il server di MAMP sia acceso andiamo su http://localhost:8000/ e dovremmo visualizzare il progetto

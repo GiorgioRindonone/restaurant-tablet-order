@@ -34,10 +34,10 @@ class HomeController extends Controller
 
         $media = DB::table("plates")->avg('price');
 
-        $plates =  DB::table("plates")->get();
+        $plates = Plate::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
         //dd($user->address);
-        $categories = Category::where()->orderBy('created_at', 'desc')->get();
+        $categories = Category::orderBy('created_at', 'desc')->get();
 
-        return view('admin.home', compact('plates', 'user', 'media', 'categoryes'));
+        return view('admin.home', compact('plates', 'user', 'media', 'categories'));
     }
 }

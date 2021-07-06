@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::namespace('Api')->group(function () {
+    
+    Route::get('/search', 'RestaurantController@userWithGenres');
+
+    Route::get('/categories', 'RestaurantController@categories');
+
+    Route::get('/filterapi', 'RestaurantController@filteredApi');   
+
+    //Route::get('/payment/done' , 'PaymentController@apiPayment');
+
+    Route::get('/user/orders', 'RestaurantController@orders');
+
+});

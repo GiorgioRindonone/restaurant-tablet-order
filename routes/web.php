@@ -13,10 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+*/
+
+//Homepage 
+Route::get('/', 'Guest\ApplicationController@index')->name('guest.index');
+Route::get('/show/{user}', 'Guest\ApplicationController@show')->name('guest.show');
+Route::get('/show/{user}/checkout', 'Guest\OrderController@formOrder')->name('guest.checkout');
+Route::post('restaurant/checkout', 'Guest\OrderController@storePayment')->name('guest.checkout.store');
+
+// Autenticazione
+Auth::routes();
+
+
+// Rotte Admin
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
+    Route::resource('plates', 'PlateController');
+    Route::resource('user', 'UserController');   
+});
+
+
+//orders
+//Route::get('/orders/{user}', 'OrderController@orders')->name('orders.index');
+

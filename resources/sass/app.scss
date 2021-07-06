@@ -3,6 +3,33 @@
 
 // Variables
 @import 'variables';
+@import 'common';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+// partials
+@import 'dashboard';
+@import 'aside_left';
+
+
+// @import 'partials/modal';
+
+//@import 'partials/homeguest';
+//@import 'partials/login';
+//@import 'partials/register';
+//@import 'partials/header';
+
+
+// components
+//@import 'components/buttons';
+
+// pages
+//@import 'pages/admin/show';
+//@import 'pages/guest/show';
+//@import 'pages/guest/footer';
+//@import 'pages/admin/edit_user';
+//@import 'pages/guest/success';
+//@import 'pages/guest/checkout';
+
